@@ -423,7 +423,7 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>65</h3>
+              <h3 id="humidity_ext_val">10L</h3>
 
               <p>Humedad Extraida</p>
             </div>
@@ -445,17 +445,17 @@
               <div class="box-body">
                 <div class="form-group">
                   <span>Kg Papel: </span>
-                  <input type="number" id="kgpapel"></input>
+                  <input type="number" id="kgpapel" value="80"></input>
                 </div>
                 <div class="form-group">
                   <span>Kg Madera: </span>
-                  <input type="number" id="kgmadera"></input>
+                  <input type="number" id="kgmadera" value="160"></input>
                 </div>
                 <div class="form-group">
                   <span>Kg Carton: </span>
-                  <input type="number" id="kgcarton"></input>
+                  <input type="number" id="kgcarton" value="1350"></input>
                 </div>
-                <button class="btn" onclick="set_vars()">Guardar</button>
+                <button class="btn" onclick="calc_vars()">Calcular</button>
               </div>
             </div>
           </div>
@@ -466,10 +466,22 @@
                 <h3 class="box-title">Humedad en aislante</h3>
               </div>
               <div class="box-body">
-                <h5>Humedad madera:</h5>
-                <h5>Humedad papel:</h5>
-                <h5>Humedad cartón:</h5>
-                <h4>Masa de agua:</h4>
+                <div class="form-group">
+                  <span>Humedad papel %: </span>
+                  <input type="text" id="porpapel" value="8">
+                </div>
+                <div class="form-group">
+                  <span>Humedad madera %: </span>
+                  <input type="text" id="pormadera" value="6">
+                </div>
+                <div class="form-group">
+                  <span>Humedad cartón %: </span>
+                  <input type="text" id="porcarton" value="10">
+                </div>
+                <div class="form-group">
+                  <span>Masa de agua:</span>
+                  <input type="text" id="porcalc" value="">
+                </div>
               </div>
             </div>
           </div>

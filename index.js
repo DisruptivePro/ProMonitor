@@ -55,6 +55,7 @@ client.connect(function(err) {
 require('./controller/routes.js')(app, client);
 
 
+
 // Socket.io ======================================================================
 io.on('connection', function (socket) {
   console.log("Connecting sockets...");
@@ -62,17 +63,124 @@ io.on('connection', function (socket) {
   
   setInterval(function(){
    var data = [];
+   var temp = getRandomInt(100,120);
 
-   // Humidity
-   data.push(getRandomInt(0.2,1.7));
+    // SQL Query > Select Data
+    var query = client.query("SELECT *, cast(created_at as time) AS time FROM tblchar ORDER BY id DESC LIMIT 15");
 
-   // Temp
-   data.push(getRandomInt(100,120));
+    // Stream results back one row at a time
+    query.on('row', function(row) {
+      data.push(row);
+    });
+
+    query.on('end', function() {
+          // console.log(results);
+          dataset = {
+            labels: [],
+            temp: [],
+            labels2: [],
+            humidity: [],
+            labels3: [],
+            pressure: [],
+            labels4: [],
+            co: [],
+
+            // status: status,
+            // mode: mode,
+            // batt: batt,
+            // lat: lat,
+            // long: long,
+            // alt: alt,
+            // speed: speed
+          }
+
+          var l = [], t = [];
+          var l2 = [], h = [];
+          var l3 = [], p = [];
+          var l4 = [], c = [];
+
+          for (var i = data.length - 1; i >= 0; i--) {
+            json = data[i];
+
+            tiempo = json.time.split(':');
+            tiempo = tiempo[0] + ':' + tiempo[1];
+
+            l.push(tiempo);
+            t.push(parseFloat(json.temp).toFixed(2));
+
+            l2.push(tiempo);
+            h.push(parseFloat(json.humidity).toFixed(2));
+
+            l3.push(json.temp + 'C');
+            // hPa
+            p.push(parseFloat(json.pressure/100).toFixed(2));
+
+          }
+
+          dataset.labels = l;
+          dataset.temp = t;
+
+          dataset.labels2 = l2;
+          dataset.humidity = h;
+
+          dataset.labels3 = l3;
+          dataset.pressure = p
+
+          io.sockets.emit('setChartData', dataset);
+          // client.end();
+      });
    
-    io.sockets.emit('setData', data);
   },1000);
 
 });
+
+
+var serialport = require("serialport");
+
+var SerialPort = serialport.SerialPort;
+
+var serialPort = new SerialPort("/dev/tty.usbmodem1431", {
+  baudrate: 9600,
+  parser: serialport.parsers.readline("\n")
+}, false);
+
+
+serialPort.open(function (error) {
+  if ( !error ) {
+    console.log('Port open.');
+    
+    serialPort.on('data', function(data) {
+      console.log('data: ' + data.toString());
+      data = data.toString();
+      data = data.replace('[', '');
+      data = data.replace(']', '');
+      data = data.split(',');
+      console.log(data.length)
+
+      var results = [];
+
+      results.push(data[0]);
+      results.push(getRandomInt(0.2, 1.7));
+
+      // SQL Query > Insert Data
+    client.query("INSERT INTO tblchar(temp, humidity, pressure, created_at, updated_at) values($1, $2, $3, NOW(), NOW())", [data[0], data[1], 0]);
+    console.log('Data inserted!');
+
+      // io.sockets.emit('setData', results);
+
+      serialPort.flush();
+    });
+
+    serialPort.write("ok:ok\n", function(err, results) {
+      if (err) {
+        console.log('err ' + err);
+      }
+      // console.log('results ' + results);
+    });
+
+  }
+});
+
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 0.1)) + min;
