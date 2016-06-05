@@ -7,8 +7,6 @@ $(function(){
 		console.log(data);
 	});
 
-    // var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
-    var humidityChartCanvas = $("#humidityChart").get(0).getContext("2d");
 
     Chart.types.Line.extend({
 	    name: "Line2Y",
@@ -77,18 +75,17 @@ $(function(){
 	    }
 	});
 
-
-	var lineChartData1 = {
-	    labels: ["January", "February", "March", "April", "May", "June", "July"],
+	var lineChartData_4 = {
+	    labels: ["18:55", "18:56", "18:57", "18:58", "18:59", "19:00", "19:01"],
 	    datasets: [{
-	        label: "My First dataset",
+	        label: "Thermopar 1",
 	        fillColor : "rgba(220,220,220,0.5)",
             strokeColor : "rgba(220,220,220,1)",
             pointColor : "rgba(220,220,220,1)",
             pointStrokeColor : "#fff",
 	        data: [15, 25, 90, 81, 56, 55, 135]
 	    }, {
-	        label: "My Second dataset",
+	        label: "Thermopar 2",
 	        fillColor: "rgba(151,187,205,0.5)",
 	        strokeColor: "rgba(151,187,205,1)",
 	        pointColor: "rgba(151,187,205,1)",
@@ -96,7 +93,7 @@ $(function(){
 	        data: [150, 48, 120, 19, 46, 27, 100],
 	        y2axis: true
 	    }, {
-	        label: "My Third dataset",
+	        label: "Thermopar 3",
 	        fillColor : "rgba(151,187,205,0.5)",
             strokeColor : "rgba(151,187,205,1)",
             pointColor : "rgba(151,187,205,1)",
@@ -106,49 +103,13 @@ $(function(){
 	    }]
 	}
 
-	var lineChartData_2 = {
-	    labels: ["18:55", "18:56", "18:57", "18:58", "18:59", "19:00", "19:01"],
-	    datasets: [{
-	        label: "My First dataset",
-	        fillColor: "rgba(151,187,205,0.5)",
-	        strokeColor: "rgba(151,187,205,1)",
-	        pointColor: "rgba(151,187,205,1)",
-	        pointStrokeColor: "#fff",
-	        data: [90, 91, 95, 100, 110, 115, 120]
-	    }]
-	}
+	var vpChartEl = document.getElementById("vpChart").getContext("2d");
 
-	var lineChartData_3 = {
-	    labels: ["18:55", "18:56", "18:57", "18:58", "18:59", "19:00", "19:01"],
-	    datasets: [{
-	        label: "My First dataset",
-	        fillColor : "rgba(220,220,220,0.5)",
-            strokeColor : "rgba(220,220,220,1)",
-            pointColor : "rgba(220,220,220,1)",
-            pointStrokeColor : "#fff",
-	        data: [40, 51, 65, 100, 110, 115, 120]
-	    }]
-	}
-
-	// var ctx = document.getElementById("areaChart").getContext("2d");
-	var humidityChartEl = document.getElementById("humidityChart").getContext("2d");
-	var moiChartEl = document.getElementById("coilChart").getContext("2d");
-
-	// var myLine1 = new Chart(ctx).Line2Y(lineChartData1, {
-	//     scaleBeginAtZero: true,
-	//     scaleShowGridLines: false
-	// });
-
-	var myLine2 = new Chart(humidityChartEl).Line(lineChartData_2, {
+	var myLine4 = new Chart(vpChartEl).Line(lineChartData_4, {
 	    scaleBeginAtZero: true,
 	    scaleShowGridLines: false
 	});
 
-
-	var myLine3 = new Chart(moiChartEl).Line(lineChartData_3, {
-	    scaleBeginAtZero: true,
-	    scaleShowGridLines: false
-	});
 
 	// areaChart.Line(lineChartData, areaChartOptions);
 

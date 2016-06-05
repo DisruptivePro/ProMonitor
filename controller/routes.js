@@ -75,6 +75,21 @@ module.exports = function(app) {
 
 	});
 
+	app.get('/vp', isLoggedIn, function(req, res) {
+
+		res.render('pages/vp.ejs', {
+					user : "user", 
+					empty : "false",
+					reference: "raference",
+					data: "dataList",
+					pageSize: "pageSize",
+					dataTotal: "dataTotal",
+					pageCount: "pageCount",
+					currentPage: "currentPage"
+		});	
+
+	});
+
 	// Module Settings
 	app.get('/settings', isLoggedIn, function(req, res) {
 		var user = req.user;
