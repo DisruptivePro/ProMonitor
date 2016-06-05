@@ -7,6 +7,15 @@ $(function(){
 		console.log(data);
 	});
 
+	socket.on('setData', function (data) {
+		// console.log(data);
+		var humidity = data[0];
+		var temp = data[1];
+
+		$('#humidity_val').html(humidity+'%');
+		$('#temp_val').html(temp+'ºC');
+	});
+
     // var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
     var humidityChartCanvas = $("#humidityChart").get(0).getContext("2d");
 
@@ -150,7 +159,28 @@ $(function(){
 	    scaleShowGridLines: false
 	});
 
-	// areaChart.Line(lineChartData, areaChartOptions);
-
 });
+
+function set_vars(){
+	
+	var sendInfo = {
+      	kgpaper: $('#kgpapel').val(),
+      	kgwood: $('#kgmadera').val(),
+      	kgcardboard: $('#kgcarton').val()
+      };
+
+	$.ajax({
+      type: "POST",
+      url: "/vars",
+      data: sendInfo,
+      success: function(data){
+        // console.log(data);
+      },
+      error: function(data){
+        console.log('Error:');
+        console.log(data);
+      },
+      dataType: 'JSON'
+  });
+}
 

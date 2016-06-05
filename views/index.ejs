@@ -378,7 +378,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>3%</h3>
+              <h3 id="humidity_val">3%</h3>
 
               <p>Humedad</p>
             </div>
@@ -393,7 +393,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3 id="temp_val">53ºC</h3>
 
               <p>Temperatura</p>
             </div>
@@ -410,7 +410,7 @@
             <div class="inner">
               <h3>44</h3>
 
-              <p>Vacio</p>
+              <p>Presion de Vacio</p>
             </div>
             <div class="icon">
               <i class="ion ion-speedometer"></i>
@@ -421,7 +421,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box bg-blue">
             <div class="inner">
               <h3>65</h3>
 
@@ -455,7 +455,7 @@
                   <span>Kg Carton: </span>
                   <input type="number" id="kgcarton"></input>
                 </div>
-                <button class="btn">Guardar</button>
+                <button class="btn" onclick="set_vars()">Guardar</button>
               </div>
             </div>
           </div>

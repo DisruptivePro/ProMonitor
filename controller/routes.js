@@ -1,6 +1,6 @@
-module.exports = function(app) {
+module.exports = function(app, client) {
 	// app/routes.js
-	var pg = require('pg');
+	// var pg = require('pg');
 	
 	// connection.query('USE ' + dbconfig.database);
 
@@ -88,6 +88,21 @@ module.exports = function(app) {
 					currentPage: "currentPage"
 		});	
 
+	});
+
+	app.post('/vars', isLoggedIn, function(req, res) {
+		console.log(req.body);
+
+		var paper = req.body.kgpaper;
+		var wood = req.body.kgwood;
+		var cardboard = req.body.kgcardboard;
+
+		var query = client.query("UPDATE tblvars SET paper=" + paper + ", wood=" + wood + ", cardboard=" + cardboard + " WHERE id = 2",function (err, data) {
+			console.log(data);
+			res.send(JSON.stringify({
+				reference: data
+			}));
+		});
 	});
 
 	// Module Settings
