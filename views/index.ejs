@@ -372,6 +372,46 @@
 
     <!-- Main content -->
     <section class="content">
+
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="ion ion-ios-rainy-outline" style="font-size: 100px"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Humidity</span>
+              <span class="info-box-number"></span>
+            </div><!-- /.info-box-content -->
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="ion ion-thermometer" style="font-size: 70px;"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Temperatura</span>
+              <span class="info-box-number"></span>
+            </div><!-- /.info-box-content -->
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fa fa-tachometer"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Vacío</span>
+              <span class="info-box-number"></span>
+            </div><!-- /.info-box-content -->
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="fa fa-cloud"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Humedad extraída</span>
+              <span class="info-box-number"></span>
+            </div><!-- /.info-box-content -->
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-4">
           <div class="box box-default">
@@ -410,10 +450,7 @@
             </div>
           </div>
         </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
+        <div class="row">
         <section class="col-lg-6 connectedSortable">
 
 
@@ -423,7 +460,6 @@
               <h3 class="box-title">Humedad</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
@@ -432,14 +468,8 @@
 
               </div>
             </div><!-- /.box-body -->
-          </div><!-- /.box -->
-        </div>
-        <div class="row">
-
-
+          </div>
         </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">
 
            <!-- AREA CHART -->
@@ -450,7 +480,6 @@
               </h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
@@ -461,6 +490,7 @@
           </div><!-- /.box -->
         </section>
         <!-- right col -->
+      </div>
       </div>
       <!-- /.row (main row) -->
 
