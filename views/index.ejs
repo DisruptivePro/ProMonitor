@@ -372,29 +372,44 @@
 
     <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="box box-default">
-          <div class="box-header with-border">
-            <h3 class="box-title">New Data</h3>
-            <div class="box-tools pull-right">
-              <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        <div class="col-md-4">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Composición del material aislante</h3>
+            </div>
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="kgpapel">Kg Papel</input>
+                  <input type="number" id="kgpapel"></input>
+                </div>
+                <div class="form-group">
+                  <label for="kgmadera">Kg Madera</input>
+                  <input type="number" id="kgmadera"></input>
+                </div>
+                <div class="form-group">
+                  <label for="kgcarton">Kg Carton</input>
+                  <input type="number" id="kgcarton"></input>
+                </div>
+                <button class="btn">Calcular</button>
+              </div>
             </div>
           </div>
-            <div class="box-body">
-              <div class="form-group">
-              <label for="kgpapel">Kg Papel</input>
-              <input type="number" id="kgpapel"></input>
-              <label for="kgmadera">Kg Madera</input>
-              <input type="number" id="kgmadera"></input>
-              <label for="kgcarton">Kg Carton</input>
-              <input type="number" id="kgcarton"></input>
+
+          <div class="col-md-4">
+            <div class="box box-default">
+              <div class="box-header with-border">
+                <h3 class="box-title">Humedad en aislante</h3>
+              </div>
+              <div class="box-body">
+                <h5>Humedad madera:</h5>
+                <h5>Humedad papel:</h5>
+                <h5>Humedad cartón:</h5>
+                <h4>Masa de agua:</h4>
+              </div>
             </div>
-            <button class="btn">Add</button>
           </div>
         </div>
-      </div>
       <!-- /.row -->
       <!-- Main row -->
       <div class="row">
@@ -430,13 +445,9 @@
            <!-- AREA CHART -->
           <div class="box box-primary">
             <div class="box-header with-border">
-<<<<<<< HEAD
               <h3 class="box-title">
                   <a href="/vp">Temperatura Bobina</a>
               </h3>
-=======
-              <h3 class="box-title">Moisture</h3>
->>>>>>> 343b6fe8a491bc3a67e7d517a645d39a76d16f78
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -444,13 +455,7 @@
             </div>
             <div class="box-body">
               <div class="chart">
-<<<<<<< HEAD
                 <canvas id="coilChart" width="858" height="500"></canvas>
-                
-=======
-                <canvas id="moiChart" width="858" height="500"></canvas>
-
->>>>>>> 343b6fe8a491bc3a67e7d517a645d39a76d16f78
               </div>
             </div><!-- /.box-body -->
           </div><!-- /.box -->
