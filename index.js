@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 // database ======================================================================
 var connectionString = "postgres://postgres:Ch0pper04@localhost/prolec_db";
 
-var client = new pg.Client(connectionString);
+/*var client = new pg.Client(connectionString);
 client.connect(function(err) {
   if(err) {
     return console.error('Could not connect to postgres', err);
@@ -40,7 +40,7 @@ client.connect(function(err) {
 
     // client.end();
   });
-});
+});*/
 
 
 // routes ======================================================================
