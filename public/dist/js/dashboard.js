@@ -12,6 +12,15 @@ $(function(){
 		var humidity = data[0];
 		var temp = data[1];
 
+		if (temp<101) {
+			$('#tempbox').removeClass('bg-green');
+			$('#tempbox').addClass('bg-red');
+		}
+		else{
+			$('#tempbox').removeClass('bg-red');
+			$('#tempbox').addClass('bg-green');
+		}
+
 		$('#humidity_val').html(humidity+'%');
 		$('#temp_val').html(temp+'ºC');
 	});
@@ -162,7 +171,7 @@ $(function(){
 });
 
 function set_vars(){
-	
+
 	var sendInfo = {
       	kgpaper: $('#kgpapel').val(),
       	kgwood: $('#kgmadera').val(),
