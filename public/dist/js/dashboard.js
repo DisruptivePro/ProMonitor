@@ -40,6 +40,10 @@ $(function(){
 			$('#tempbox').addClass('bg-green');
 		}
 
+		_humidity = (humidity - 0) * (0.1 - 10.00) / (600.00 - 0) + 10.00
+		_humidity = _humidity.toFixed(2);
+
+		$('#humidity_val').html(_humidity+' %');
 		$('#humidity_ext_val').html(humidity+' L');
 		$('#temp_val').html(temp+' ºC');
 
